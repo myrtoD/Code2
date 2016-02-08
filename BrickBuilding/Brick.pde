@@ -18,8 +18,7 @@ class Brick{
     yPos = mouseY;
 
   }
-  
-  //updating the creature
+ 
   void update(){
     strokeWeight(2);
     stroke(0);

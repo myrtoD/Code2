@@ -1,20 +1,20 @@
-Smile friend;
-Smile bestFriend;
+Brick base;
+Brick support;
 
 void setup(){
   size (800, 800);
   
-  friend= new Smile();
-  bestFriend = new Smile();
+  base= new Brick();
+  support = new Brick();
 }
 
 void draw(){
   if(mousePressed){
-    friend.giveBirth();
-    bestFriend.giveBirth();
+    base.giveBirth();
+    support.giveBirth();
   }
   
-  friend.update();
-  bestFriend.update();
+  base.update();
+  support.update();
   
 }
