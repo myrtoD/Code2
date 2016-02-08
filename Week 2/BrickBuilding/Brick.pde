@@ -23,12 +23,11 @@ class Brick{
     strokeWeight(2);
     stroke(0);
     fill(redish);
-    rect(xPos, yPos, size, size);
+    rect(xPos, yPos, size*2, size*2);
     fill(redish);
     rect(xPos -(size), yPos-(size), size, size);
     fill(redish);
-    rect(xPos-(size), yPos-(size+size*0.5), size*5, size*5);
-    line(xPos-(size*2), yPos+(size*2), xPos+(size*2), yPos + (size*2));
+    rect(xPos-(size), yPos-(size+size), size*5, size*5);
     
     xPos+=xSpeed;
     yPos+=ySpeed;
