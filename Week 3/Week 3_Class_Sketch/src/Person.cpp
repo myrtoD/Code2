@@ -10,10 +10,10 @@
 #include "ofMain.h"
 
 //Person::Person(){
-    //height = 10;
-    //smell = "good";
-    //name = "bob";
-//
+   // height = 10;
+  //  smell = "good";
+  //  name = "bob";
+//}
 
 void Person::walk(){
     cout << "I'm walking!"<< endl;
