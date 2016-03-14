@@ -20,11 +20,9 @@ void ofApp::update(){
 void ofApp::draw(){
     
     ofSetColor(200,255,0);
-    ofEllipse(512, 384, 100, 100);
-    
+    ofDrawEllipse(512, 384, 100, 100);
 
     myPlanet.draw();
-    
     
 }
 

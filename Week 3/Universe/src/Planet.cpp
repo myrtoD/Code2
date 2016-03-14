@@ -24,11 +24,9 @@ void Planet::setup(){
     
     color.set(255, 6, 8);
     
-
 }
 
 void Planet::update(){
-    
     
     x+=speedX;
     y+=speedY;
