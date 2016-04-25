@@ -1,0 +1,185 @@
+How to Start Your Project
+
+1. Open project generator. 
+2. Name your Project and select the appropriate Project path.
+3. Select the Addon "ofxOpenCv".
+4. Generate your project!
+5. Open the "opencvExample", pathway: openFrameworks->examples->addons->opencvExample->opencvExample.xcodeproj
+
+How to iterate on the "opencvExample"
+
+1. Add underneath the already existing code in:
+
+   "ofApp.h file"
+   
+   class blobData{   // to create a class for all blobs on screen
+        public:
+            vector<ofxCvBlob> contours;   // to create a vector for the blob contours
+            ofColor color;    // to create a vector for the blob colors
+    };
+    
+    vector<blobData> blobs;   // changed from "vector<ofPolyline> allBlobs;"
+    
+    int threshold;
+    
+    bool bLearnBakground;
+    
+    bool bMakeBlob;   // to create blobs from pixels
+    
+    
+    ofColor colors[7];   // the number can be changed to any desirable integer to specify the number of colors
+    
+    ofColor currentColor;   // converts current color of pixels in blob on screen to the specified color
+    
+   int drawMode;   // allows a drawing to be made
+
+
+2. Add underneath the already existing code in:
+
+   "ofApp.cpp file"
+   
+      (a)   in void ofApp::setup(){
+      
+      
+      bMakeBlob = false;   // starting with no blobs
+    
+    drawMode=0;   // starting with nothing drawn
+    
+    
+    //the following r,g,b colors can be changed to any desirable compination
+    
+    colors[0]=ofColor(255,0,0);
+    colors[1]=ofColor(255,157,0);
+    colors[2]=ofColor(255,230,0);
+    colors[3]=ofColor(90,206,0);
+    colors[4]=ofColor(0,231,255);
+    colors[5]=ofColor(0,0,255);
+    colors[6]=ofColor(164,6,237);
+   
+      (b)   in void ofApp::update(){ 
+      
+      contourFinder.findContours(grayDiff, 20, (340*240)/3, 10, false);   // changed from "true" to "false" in order to make an "if" statement
+        
+        if(bMakeBlob==true){   // if there is a blob then it is added to the vector of blobs
+            vector<ofxCvBlob> tempBlobs;
+            for (int i = 0; i < contourFinder.nBlobs; i++){
+                tempBlobs.push_back(contourFinder.blobs[i]);
+            }
+            
+            blobData tempBlobData;
+            tempBlobData.contours=tempBlobs;
+            tempBlobData.color=currentColor;
+            blobs.push_back(tempBlobData);
+            bMakeBlob=false;
+        }
+
+
+      (c)    in void ofApp::draw(){   
+      
+          if(drawMode==0){     //goes above the code already written in the "opencvExample"
+          
+          //the following already existing code was deleted : "if(contourFinder.blobs[i].hole){
+                                                                  ofDrawBitmapString("hole",
+                                                                  contourFinder.blobs[i].boundingRect.getCenter().x + 360,
+                                                                  contourFinder.blobs[i].boundingRect.getCenter().y + 540);"
+          
+          //the following goes below the already existing code
+          
+          for(int h=0; h<blobs.size(); h++){  //changed from "for (int i = 0; i < contourFinder.nBlobs; i++){
+                                                                contourFinder.blobs[i].draw(360,540);"
+     
+     
+        // the following 10 lines of code, draw each blob individually from the blobs vector. This is how we access them.
+        
+        for (int i = 0; i < blobs[h].contours.size(); i++){
+            
+           ofSetColor(blobs[h].color);
+           
+            ofFill();
+            ofBeginShape();
+                for(int j=0; j<blobs[h].contours[i].nPts; j++){
+                    ofVertex(blobs[h].contours[i].pts[j].x, blobs[h].contours[i].pts[j].y);
+                }
+            ofEndShape();
+            ofSetColor(255);
+        }
+    }
+    
+    // finally, a report:
+    
+    ofSetHexColor(0xffffff);
+    stringstream reportStr;
+    reportStr << "bg subtraction and blob detection" << endl
+    << "press ' ' to capture bg" << endl
+    << "threshold " << threshold << " (press: +/-)" << endl
+    << "num blobs found " << contourFinder.nBlobs << ", fps: " << ofGetFrameRate();
+    ofDrawBitmapString(reportStr.str(), 20, 600);
+    
+       // the following 16 lines of code, fill the blobs with the specified color
+    
+    }else{
+        ofPushMatrix();
+        ofScale(3,3,3);
+        for(int h=0; h<blobs.size(); h++){
+            
+            for (int i = 0; i < blobs[h].contours.size(); i++){
+                
+                ofSetColor(blobs[h].color);
+                
+                ofFill();
+                ofBeginShape();
+                for(int j=0; j<blobs[h].contours[i].nPts; j++){
+                    ofVertex(blobs[h].contours[i].pts[j].x, blobs[h].contours[i].pts[j].y);
+                }
+                ofEndShape();
+                ofSetColor(255);
+            }
+        }
+        ofPopMatrix();
+    }
+
+    (d)    in void ofApp::keyPressed(int key){
+    
+    // any of the following "case" integers can be changed to any desirable key on the keyboard
+    // make case statements for each keyPress to specify its function
+    
+            case '0':
+            drawMode++;
+            if (drawMode>1){
+                drawMode=0;
+            }
+            break;
+        case '1':
+            bMakeBlob=true;   // if the statement is true...
+            currentColor=colors[0];   // the current color of pixels in the blob are converted to the color linked with the array integer. This is the same for the following cases.
+            break;
+        case '2':
+            bMakeBlob=true;
+            currentColor=colors[1];
+            break;
+        case '3':
+            bMakeBlob=true;
+            currentColor=colors[2];
+            break;
+        case '4':
+            bMakeBlob=true;
+            currentColor=colors[3];
+            break;
+        case '5':
+            bMakeBlob=true;
+            currentColor=colors[4];
+            break;
+        case '6':
+            bMakeBlob=true;
+            currentColor=colors[5];
+            break;
+        case '7':
+            bMakeBlob=true;
+            currentColor=colors[6];
+            break;
+    
+    
+
+   
+
+
