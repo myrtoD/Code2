@@ -9,6 +9,7 @@
 #include "Wave.hpp"
 
 Wave::Wave(){
+
 }
 
     void Wave::setup(){
@@ -18,8 +19,17 @@ Wave::Wave(){
         span = ofRandom(10, 20);
         y = ofRandom(500, 800);
         yPos = y + (span * sin(ofWrapRadians(ang)));
+       // velX = ofRandom(-3, 3);
+        //velY = ofRandom(-4, 4);
         
     }
+
+    void Wave::update(){
+        
+        //xPos = xPos + velX;
+        //yPos = yPos + velY;
+    
+}
 
     
     void Wave::draw(){

@@ -22,14 +22,13 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
-    Wave wave1;
-    Wave wave2;
-    Wave wave3;
-    Wave wave4;
-    Wave wave5;
-    Wave wave6;
-    Wave wave7;
+    float x1, x2, y1, y2;
+    float angle1, angle2;
+    float scalar = 70;
     
-    //vector <Wave> myWaves;
+    float maxWaves = 5;
+    
+   vector <Wave> myWaves;
+    
 		
 };

@@ -19,10 +19,10 @@ public:
     
     //properties
     
-    float x;
-    float y;
     float xPos;
     float yPos;
+    float x;
+    float y;
     
     float width;
     
@@ -38,6 +38,7 @@ public:
     //methods
     
     void setup();
+    void update();
     void draw();
 
     

@@ -12,7 +12,6 @@ void setup() {
   for (int i=0; i<maxWaves; i++) {
     int col = color(0,0,random(100,255), 128 + ((255 - 128) / a) );
     waves[i] = new Wave((int)random(20,30), col);
-    
   }
 }
 
@@ -42,9 +41,6 @@ class Wave {
       x += step;
       ang += aS;
     }
-    
-    
-    
   }
 
   public void draw() {

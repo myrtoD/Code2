@@ -73,7 +73,9 @@ void ofApp::mousePressed(int x, int y, int button){
         }
     }
     
-    //myAliens.clear();
+    //mywave.clear();
+    
+    offErase
 
 }
 
