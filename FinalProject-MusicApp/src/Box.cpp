@@ -27,20 +27,20 @@ void Box::setup(){
     // Determine the sound file based on colour
     if (color.g > color.r && color.g > color.b) {
         // Green
-        soundFile = "Brahms Symphony - from Fourth Movement.mp3";
+        soundFile = "Now You Know.mp3";
     } else
         
         if (color.r > color.g && color.r > color.b) {
             // Red
-            soundFile = "Bach - Jesu, Joy of Man's Desiring.mp3";
+            soundFile = "More or Less.mp3";
         } else
             
             if (color.b > color.r && color.b > color.r) {
                 // Blue
-                soundFile = "The Irish Washerwoman.mp3";
+                soundFile = "Ode To My Dope Q45.mp3";
             } else {
                 // Rare grey
-                soundFile = "Commercial DEMO - 13.mp3";
+                soundFile = "Electric Sould.mp3";
             }
     
     
