@@ -1,0 +1,16 @@
+In this project I wanted to somehow use the human psychology and more specifically somehow show emotions.
+I decided that the best way to show emotions is with color and sound.
+
+I created a project where 5 boxes appear on the screen, with a different color each ranging on the r, g, b scale.
+I was conflicted whether I should choose these 5 colors and whether they should be set and then to according to my own experiences match a color to a sound.
+I decided, for the sake of variety to randomize both the colors and the location of the boxes on the screen.
+However, that complecated how I was going to match the music to the colors. 
+As a result, I decided to match the songs to the colors depending on how distinct on that specific is the presence of the red or green or blue color accordingly, and to leave one song left for the rare appearance of a grey based color.
+Finally, all the music is original music composed by my friend.
+I chose that in order to make the user of the project create new memories and emotions with a sound new to them, and to not associate the music with past experiences and associations they may have made with the specific song.
+
+If I was to take this project to the next level I would add animations to the different emotions to perhaps facilitate the emotion to be shown.
+
+
+References:  Music -> Gemini Rich - https://soundcloud.com/n4s-productions-llc
+             Inspiration -> Abnormal Psychology class -
